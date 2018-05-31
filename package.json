@@ -1,6 +1,6 @@
 {
   "name": "tempah",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://github.com/prontotype-us/tempah",
   "repository": {
     "type": "git",
@@ -12,4 +12,3 @@
     "build": "coffee --bare -o lib -c src"
   }
 }
-
