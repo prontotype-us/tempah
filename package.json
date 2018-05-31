@@ -1,0 +1,15 @@
+{
+  "name": "tempah",
+  "version": "0.0.1",
+  "homepage": "http://github.com/prontotype-us/tempah",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/prontotype-us/tempah"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "coffee --bare -o lib -c src"
+  }
+}
+
