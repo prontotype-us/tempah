@@ -4,7 +4,13 @@ Tempah is a tiny templating module. It does simple replacement of `$variable` va
 
 ## Usage
 
-`tempah(template: String, values: Map<String, String>, filters: Map<String, Function>): String`
+```
+tempah(
+    template: String,
+    values: Map<String, String>,
+    filters: Map<String, Function>
+): String
+```
 
 ## Example
 
