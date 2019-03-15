@@ -1,4 +1,19 @@
-module.exports = tempah = (template, values, filters) ->
+start_match = /^([a-z])/
+sentence_match = /([\.!?]) ([a-z])/g
+newline_match = /\n([a-z])/g
+
+correctCapitalization = (str) ->
+    return str if not str.length
+    str[0] = str[0].toUpperCase()
+    str = str.replace start_match, (matched, letter) ->
+        return letter.toUpperCase()
+    str = str.replace newline_match, (matched, letter) ->
+        return '\n' + letter.toUpperCase()
+    str = str.replace sentence_match, (matched, punctuation, letter) ->
+        return punctuation + ' ' + letter.toUpperCase()
+    return str
+
+module.exports = tempah = (template, values, filters={}, options={}) ->
     variables = template.match /\$[a-zA-Z_]+(\|[a-zA-Z]+)?/g
 
     if not variables?.length
@@ -16,5 +31,8 @@ module.exports = tempah = (template, values, filters) ->
                 throw "No such filter #{filter_name}"
             value = filter(value)
         templated = templated.replace variable, value
+
+    if options.correct_capitalization
+        templated = correctCapitalization templated
 
     return templated
