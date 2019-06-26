@@ -1,6 +1,6 @@
 start_match = /^([a-z])/
-sentence_match = /([\.!?]) ([a-z])/g
 newline_match = /\n([a-z])/g
+sentence_match = /([\.!?>]\s*)([a-z])/g
 
 correctCapitalization = (str) ->
     return str if not str.length
@@ -10,7 +10,7 @@ correctCapitalization = (str) ->
     str = str.replace newline_match, (matched, letter) ->
         return '\n' + letter.toUpperCase()
     str = str.replace sentence_match, (matched, punctuation, letter) ->
-        return punctuation + ' ' + letter.toUpperCase()
+        return punctuation + letter.toUpperCase()
     return str
 
 module.exports = tempah = (template, values, filters={}, options={}) ->
